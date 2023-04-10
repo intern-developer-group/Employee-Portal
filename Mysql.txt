@@ -1,0 +1,89 @@
+**Connection:
+$servername = "localhost";
+$username = "username";
+$password = "password";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password);
+
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+echo "Connected successfully";
+
+
+**Close connection
+mysqli_close($conn);
+
+
+++Select data from table 
+
+syntax: to view all rows from table
+select * from student
+
+syntax: to view particular columns
+select name,collname,mob from student
+
+syntax: to view data with condition
+select * from student where name='piyush'
+
+
+++Update data from table 
+
+update tablename set colname1 = newval1, colname2 = newval2, where condition
+
+eg. 
+
+update student set dept = 'electrical' where name = 'rishi'
+
+
+++Delete data
+
+delete from tablename where condition
+
+eg.
+
+delete from student where id=1
+
+
+++inserting data
+
+insert into tablename(colname1,colname2,..) values(val1,val2,...)
+insert into sudent(name,dept,collname,email) values('piyush','etc','raisonieng','piyush@gmail.com')
+
+
+++Create table
+
+$sql = "create table emp5(id INT AUTO_INCREMENT,name VARCHAR(20) NOT NULL,  
+emp_salary INT NOT NULL,primary key (id))";
+
+
+++ Order By
+SELECT * FROM emp4 order by name desc  
+
+++ for reseting id of auto increment
+ALTER TABLE tablename AUTO_INCREMENT = 2;
+
+++ convert sec to time / time to sec
+SELECT(SEC_TO_TIME('total_hours')) AS total_hours
+SELECT(TIME_TO_SEC('total_hours')) AS total_hours
+
+++ to get sum
+SELECT(SUM('total_hours')) AS total_hours
+$row5 = mysqli_fetch_assoc($result5);
+$total_hours_time = $row5['total_hours'];
+
+++ to select hours
+SELECT HOUR('$total_hours_time') As hours
+$row6 = mysqli_fetch_assoc($result6);
+$hours = $row6['hours'];
+
+++to select minutes
+SELECT MINUTE('$total_hours_time') As Minutes
+$row7 = mysqli_fetch_assoc($result7);
+$Minutes = $row7['Minutes'];
+
+++COUNT(*)
+SELECT COUNT(*) FROM attendance WHERE user_id = '$user_id'
+to get the total count number of rows.
