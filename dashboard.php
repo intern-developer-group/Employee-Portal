@@ -50,9 +50,6 @@ session_start();
   $time = strtotime($createddate);
   $month = date("m", $time);
   $leave = '1';
-  echo $month;?><br><?php
-  echo $createddate;?><br><?php
-    echo $current_month;?><br><?php
   if ($current_month == $month) {
   }else{
     $result3 = mysqli_query($con, "SELECT * from leaves_count WHERE user_id='$user_id' and month(created_date)='$current_month'");

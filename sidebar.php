@@ -35,7 +35,6 @@
         <?php 
        
         if($_SESSION['user_type']=="2"){
-        
         ?>
         <li class="nav-item">
           <a class="nav-link <?= ($activePage == 'ManageUser'|| $activePage=='EditUser') ? 'active':''; ?>" href="ManageUser.php">
