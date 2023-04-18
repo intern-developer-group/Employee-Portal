@@ -110,7 +110,7 @@ include 'dbcon.php';
         <?php
         $user_id = $_SESSION['user_id'];
         $sql2 =
-          $result = mysqli_query($con, "SELECT * from leave_data WHERE user_id='$user_id' AND leave_status = 'Pending' AND read_status='0'");
+          $result = mysqli_query($con, "SELECT * from leave_data WHERE user_id='$user_id' AND leave_status = 'Approve' AND read_status='0'");
         $count = mysqli_num_rows($result);
         if (isset($_GET['action'])) {
 
