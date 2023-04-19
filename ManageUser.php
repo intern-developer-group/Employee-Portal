@@ -63,10 +63,63 @@ session_start();
   @media only screen and (max-width:650px){
     .dt-buttons{
       padding-bottom: 1rem;
+      text-align:center;
+      padding-left:0px;
+    }
+    .dt-button{ 
+        padding: 0.25rem 1.5rem;
+      }
+      .card-header{
+        text-align:center;
+      }
+      .user-card{
+        padding-left: 0px !important;
+        padding-right: 0px !important;
     }
   }
-</style>
 
+  @media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+
+	thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tr { border: 1px solid #ccc; }
+	
+	td { 
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+	}
+	
+	td:before { 
+		position: absolute;
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+	
+	/*
+	Label the data
+	*/
+	td:nth-of-type(1):before { content: " Sr.No"; }
+	td:nth-of-type(2):before { content: "Employee Name"; }
+	td:nth-of-type(3):before { content: "Email"; }
+	td:nth-of-type(4):before { content: "Password"; }
+	td:nth-of-type(5):before { content: "Monthly Salary"; }
+	td:nth-of-type(6):before { content: "User Type"; }
+}
+</style>
 </head>
 
 <body class="g-sidenav-show  bg-gray-100">
@@ -108,14 +161,14 @@ session_start();
                       <input class="form-check-input" type="radio" id="2" name="radio" value="2">
                       <label class="form-check-label" for="2">Admin</label>
                     </div>
-                    <button type="submit" class="btn bg-gradient-primary mt-3 w-30" name="insert">Insert</button>
+                    <button type="submit" class="btn bg-gradient-primary mt-3" name="insert">Insert</button>
                 </ul>
               </form>
             </div>
           </div>
         </div>
       </div>
-      <div class="container-fluid py-4">
+      <div class="container-fluid user-card py-4">
         <div class="row">
           <div class="col-12">
             <div class="card mb-4">
@@ -139,8 +192,8 @@ session_start();
                           Monthly Salary</th>
                         <th class="text-center text-uppercase text-xs font-weight-bolder opacity-8">
                           User Type</th>
-                        <th class="text-center text-uppercase text-xs font-weight-bolder opacity-8">EDIT
-                        </th>
+                        <th class="text-center text-uppercase text-xs font-weight-bolder opacity-8">
+                          EDIT</th>
                         <th class="text-center text-uppercase text-xs font-weight-bolder opacity-8">
                           DELETE</th>
                       </tr>
