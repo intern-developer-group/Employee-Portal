@@ -3,7 +3,7 @@ session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
+  
 <head>
   <?php
   include 'dbcon.php'; ?>
@@ -57,7 +57,7 @@ session_start();
                     <label>usertype</label>
                     <input type="text" class="form-control" placeholder="user type" aria-label="usertype"
                       aria-describedby="usertype-addon" name="usertype" required value=<?php echo $usertype; ?>>
-                    <button type="submit" class="btn bg-gradient-primary mt-3 w-30" name="update">Update</button>
+                    <button type="submit" class="btn bg-gradient-primary mt-3" name="update">Update</button>
                 </ul>
               </form>
             </div>

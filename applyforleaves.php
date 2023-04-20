@@ -66,6 +66,18 @@ session_start();
     @media only screen and (max-width:650px) {
       .dt-buttons {
         padding-bottom: 1rem;
+        text-align:center;
+        padding-left:0px;
+    }
+    .dt-button{ 
+        padding: 0.25rem 1.5rem;
+      }
+      .bg-gradient-primary{
+        width:fit-content;
+      }
+      .user-card{
+        padding-left: 0px !important;
+        padding-right: 0px !important;
       }
     }
   </style>
@@ -274,14 +286,14 @@ session_start();
                     <label for="enddate">End Date</label>
                     <input class="form-control mb-2" type="date" name="enddate">
                   </div>
-                  <button class="btn bg-gradient-primary mt-3 w-30" name="submit">Submit</a>
+                  <button class="btn bg-gradient-primary mt-3" name="submit">Submit</a>
                 </ul>
               </form>
             </div>
           </div>
         </div>
       </div>
-      <div class="container-fluid py-5">
+      <div class="container-fluid py-5 user-card">
         <div class="row">
           <div class="col-12">
             <div class="card mb-4">

@@ -37,6 +37,13 @@ session_start();
   <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link id="pagestyle" href="assets/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
+  <style>
+     @media only screen and (max-width:650px){
+      .overtime-card{
+      margin-top:10px;
+    }
+     }
+    </style>
 </head>
 
 <body class="g-sidenav-show  bg-gray-100">
@@ -90,7 +97,7 @@ session_start();
           </div>
         </div>
         <div class="col-xl-6 col-sm-6 mb-xl-0">
-          <div class="card">
+          <div class="card overtime-card">
             <div class="card-body text-center p-3">
               <a href="addOvertime.php">
                 <div class="row">

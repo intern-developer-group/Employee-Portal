@@ -129,6 +129,19 @@ if (isset($_POST['submit'])) {
     @media only screen and (max-width:650px){
       .dt-buttons{
         padding-bottom: 1rem;
+        text-align:center;
+        padding-left:0px;
+    }
+    .dt-button{ 
+        padding: 0.25rem 1.5rem;
+      }
+      .card-header{
+        text-align:center;
+      }
+      .holiday-card{
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+      
       }
     }
   </style>
@@ -181,7 +194,7 @@ if (isset($_POST['submit'])) {
       </div>
     </div>
 
-    <div class="container-fluid py-4">
+    <div class="container-fluid py-4 holiday-card">
       <div class="row">
         <div class="col-12">
           <div class="card mb-4">

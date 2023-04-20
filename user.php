@@ -65,8 +65,19 @@ session_start();
     @media only screen and (max-width:650px){
       .dt-buttons{
         padding-bottom: 1rem;
+        text-align:center;
+        padding-left:0px;
       }
+      .dt-button{ 
+        padding: 0.25rem 1.5rem;
+      }
+      .card-header{
+        text-align:center;
+      }
+    
     }
+    
+    
   </style>
 </head>
 

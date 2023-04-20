@@ -31,7 +31,6 @@ session_start();
     .dt-buttons{
       padding-left:1.5rem;
     }
-    
     .dt-button {
       color: #fff;
       border: 0;
@@ -62,14 +61,6 @@ session_start();
     @media only screen and (max-width:650px){
       .dt-buttons{
         padding-bottom: 1rem;
-        text-align:center;
-      padding-left:0px;
-    }
-    .dt-button{ 
-        padding: 0.25rem 1.5rem;
-      }
-      .bg-gradient-primary{
-        width:fit-content;
       }
     }
   </style>
@@ -201,7 +192,7 @@ session_start();
                     <input class="form-control" type="date" id="myDate" name="date" value="<?php $date2 = date('Y-m-d');
                     echo $date2; ?>" readonly>
                   </div>
-                  <button type="submit" class="btn bg-gradient-primary mt-3" name="insert">Add</button>
+                  <button type="submit" class="btn bg-gradient-primary mt-3 w-30" name="insert">Add</button>
                 </ul>
               </form>
             </div>

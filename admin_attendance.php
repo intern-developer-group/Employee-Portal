@@ -61,8 +61,18 @@ session_start();
     @media only screen and (max-width:650px){
       .dt-buttons{
         padding-bottom: 1rem;
+        text-align:center;
+        padding-left:0px;
+      }
+      .dt-button{ 
+        padding: 0.25rem 1.5rem;
+      }
+      .user-card{
+        padding-left: 0px !important;
+        padding-right: 0px !important;
       }
     }
+  
   </style>
 </head>
 
@@ -72,7 +82,7 @@ session_start();
   <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg ">
     <?php include 'navbar.php'; ?>
 
-    <div class="container-fluid py-4">
+    <div class="container-fluid py-4 user-card">
       <div class="row">
         <div class="col-1">
         </div>

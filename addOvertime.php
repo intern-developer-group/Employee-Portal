@@ -61,6 +61,18 @@ session_start();
     @media only screen and (max-width:650px){
       .dt-buttons{
         padding-bottom: 1rem;
+        text-align:center;
+        padding-left:0px;
+    }
+    .dt-button{ 
+        padding: 0.25rem 1.5rem;
+      }
+      .bg-gradient-primary{
+        width:fit-content;
+      }
+      .user-card{
+        padding-left:0px !important;
+        padding-right:0px !important;
       }
     }
   </style>
@@ -138,7 +150,7 @@ session_start();
                     <input class="form-control" type="datetime-local" name="date" value="<?php
                     echo date('Y-m-d\TH:i:s'); ?>" readonly=""><small>*Overtime hours are 7.15 pm to 12 pm</small>
                   </div>
-                  <button type="submit" class="btn bg-gradient-primary mt-3 w-30" name="Add">Add</button>
+                  <button type="submit" class="btn bg-gradient-primary mt-3 " name="Add">Add</button>
                 </ul>
               </form>
             </div>
@@ -146,9 +158,9 @@ session_start();
         </div>
       </div>
 
-      <div class="container-fluid py-4">
+      <div class="container-fluid py-4 user-card">
         <div class="row d-flex justify-content-center ">
-          <div class="col-8">
+          <div class="col-sm-12">
             <div class="card mb-4">
               <div class="card-header pb-0">
                 <h6 class="text-center">Overtime List</h6>

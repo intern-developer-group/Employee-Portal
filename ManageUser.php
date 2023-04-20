@@ -63,8 +63,22 @@ session_start();
   @media only screen and (max-width:650px){
     .dt-buttons{
       padding-bottom: 1rem;
+      text-align:center;
+      padding-left:0px;
     }
+    .dt-button{ 
+        padding: 0.25rem 1.5rem;
+      }
+      .card-header{
+        text-align:center;
+      }
+      .user-card{
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+      }
   }
+
+
 </style>
 
 </head>
@@ -108,14 +122,14 @@ session_start();
                       <input class="form-check-input" type="radio" id="2" name="radio" value="2">
                       <label class="form-check-label" for="2">Admin</label>
                     </div>
-                    <button type="submit" class="btn bg-gradient-primary mt-3 w-30" name="insert">Insert</button>
+                    <button type="submit" class="btn bg-gradient-primary mt-3 " name="insert">Insert</button>
                 </ul>
               </form>
             </div>
           </div>
         </div>
       </div>
-      <div class="container-fluid py-4">
+      <div class="container-fluid py-4 user-card">
         <div class="row">
           <div class="col-12">
             <div class="card mb-4">
@@ -124,7 +138,8 @@ session_start();
               </div>
               <div class="card-body px-0 pt-2 pb-2">
                 <div class="table-responsive p-0">
-                  <table class="table align-items-center mb-0" id="data">
+                
+                  <table class="table align-items-center mb-0 " id="data">
                     <thead>
                       <tr>
                         <th class="text-center text-uppercase text-xs font-weight-bolder opacity-8">
@@ -207,6 +222,7 @@ session_start();
                 </div>
               </div>
               </table>
+                   
 <script src="assets/js/core/popper.min.js"></script>
 <script src="assets/js/core/bootstrap.min.js"></script>
 <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>

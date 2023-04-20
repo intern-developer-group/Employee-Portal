@@ -1,4 +1,4 @@
-<?php
+ <?php
 include 'dbcon.php';
 ?>
 <?php $activePage = basename($_SERVER['PHP_SELF'], ".php"); ?>
@@ -26,43 +26,43 @@ include 'dbcon.php';
     <?php } elseif ($activePage == 'admin_dashboard') { ?>
       <?php ACTIVEPAGE('Admin Dashboard', '') ?>
     <?php } elseif ($activePage == 'user') { ?>
-      <?php ACTIVEPAGE('Admin Dashboard', '/ Manage User') ?>
+      <?php ACTIVEPAGE('Admin Dashboard', '') ?>
     <?php } elseif ($activePage == 'edit_salary') { ?>
-      <?php ACTIVEPAGE('Admin Dashboard', '/ Edit Salary') ?>
+      <?php ACTIVEPAGE('Admin Dashboard', '') ?>
 
     <?php } elseif ($activePage == 'ManageUser') { ?>
       <?php ACTIVEPAGE('ManageUser', '') ?>
     <?php } elseif ($activePage == 'EditUser') { ?>
-      <?php ACTIVEPAGE('ManageUser', '/ Edit') ?>
+      <?php ACTIVEPAGE('ManageUser', '') ?>
 
 
     <?php } elseif ($activePage == 'attendance') { ?>
       <?php ACTIVEPAGE('Attendance', '') ?>
-    <?php } elseif ($activePage == 'dayspresent') { ?>
+    <?php } elseif ($activePage == '') { ?>
       <?php ACTIVEPAGE('Attendance', '/ Days Present') ?>
-    <?php } elseif ($activePage == 'dayleave') { ?>
+    <?php } elseif ($activePage == '') { ?>
       <?php ACTIVEPAGE('Attendance', '/ Days Leave') ?>
     <?php } elseif ($activePage == 'addattendance') { ?>
-      <?php ACTIVEPAGE('Attendance', '/ Add Attendance') ?>
+      <?php ACTIVEPAGE('Attendance', '') ?>
     <?php } elseif ($activePage == 'applyforleaves') { ?>
-      <?php ACTIVEPAGE('Attendance', '/ Days Leave') ?>
+      <?php ACTIVEPAGE('Attendance', '') ?>
     <?php } elseif ($activePage == 'admin_attendance') { ?>
       <?php ACTIVEPAGE('Admin Attendance', '') ?>
     <?php } elseif ($activePage == 'admin_attendance') { ?>
       <?php ACTIVEPAGE('Admin Attendance', '') ?>
     <?php } elseif ($activePage == 'view_employee_attendance') { ?>
-      <?php ACTIVEPAGE('Admin Attendance', '/ view') ?>
+      <?php ACTIVEPAGE('Admin Attendance', '') ?>
     <?php } elseif ($activePage == 'view_employee_present') { ?>
-      <?php ACTIVEPAGE('Admin Attendance', '/ present') ?>
+      <?php ACTIVEPAGE('Admin Attendance', '') ?>
     <?php } elseif ($activePage == 'view_employee_absent') { ?>
-      <?php ACTIVEPAGE('Admin Attendance', '/ absent') ?>
+      <?php ACTIVEPAGE('Admin Attendance', '') ?>
     <?php } elseif ($activePage == 'view_holiday') { ?>
-      <?php ACTIVEPAGE('Admin Attendance', '/ holiday') ?>
+      <?php ACTIVEPAGE('Admin Attendance', '') ?>
 
     <?php } elseif ($activePage == 'overtime') { ?>
       <?php ACTIVEPAGE('Overtime', '') ?>
     <?php } elseif ($activePage == 'addOvertime') { ?>
-      <?php ACTIVEPAGE('Overtime', '/ Add Overtime') ?>
+      <?php ACTIVEPAGE('Overtime', '') ?>
     <?php } elseif ($activePage == 'ManageOvertime') { ?>
       <?php ACTIVEPAGE('Manage Overtime', '') ?>
 
@@ -72,7 +72,7 @@ include 'dbcon.php';
     <?php } elseif ($activePage == 'ManageHoliday') { ?>
       <?php ACTIVEPAGE('Manage Holiday', '') ?>
     <?php } elseif ($activePage == 'EditHoliday') { ?>
-      <?php ACTIVEPAGE('Manage Holiday', '/ Edit ') ?>
+      <?php ACTIVEPAGE('Manage Holiday', '') ?>
 
     <?php } else { ?>
       <nav aria-label="breadcrumb">
@@ -91,7 +91,7 @@ include 'dbcon.php';
           <input type="text" class="form-control" placeholder="Type here...">
         </div>
       </div>
-      <ul class="navbar-nav  justify-content-end">
+      <ul class="navbar-nav  justify-content-end" style="">
         <li class="nav-item ms-md-auto pe-md-3 d-flex align-items-center">
           <a href="logout.php" class="nav-link text-body font-weight-bold px-0">
             <i class="fa fa-user me-sm-1"></i>
@@ -117,9 +117,9 @@ include 'dbcon.php';
         }
         ?>
         <form method="POST" action="">
-          <li class="nav-item dropdown ms-md-auto pe-md-3 d-flex align-items-center">
-            <a class="nav-link" href="&action=read" type="submit" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false" name="submit">
+          <li class="nav-item dropdown ms-md-auto  pe-md-3 d-flex align-items-center">
+            <a class="nav-link d-none" href="&action=read" type="submit" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false" name="submit" >
               <i class="fa fa-bell cursor-pointer"></i><span
                 class="badge rounded-pill bg-danger text-center d-inline-flex align-items-center justify-content-center"
                 style="width:10%; height:2vh; position: relative; top: -10px; left: -6px;">
