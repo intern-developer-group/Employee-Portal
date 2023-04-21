@@ -135,34 +135,12 @@ session_start();
                     $file_type = $_FILES['userimage']['type'];
                     move_uploaded_file($file_tmp,"assets/img/".$file_name);
                     $img_ex = pathinfo($file_name,PATHINFO_EXTENSION);
-                    echo $img_ex;
                     $allowed_exs = array('JPG', 'JPEG', 'PNG', 'jpg', 'jpeg', 'png');
                     if(in_array($img_ex, $allowed_exs)){
                   } else{
                     ?> <script> alert('please upload image in selected format only');</script><?php
                   }
                 }
-                      // print_r($_FILES["userimage"]);
-                      // $filename = $_FILES["userimage"]["name"];
-                      // $tempname = $_FILES["userimage"]["tmp_name"];
-                      // $imagesize = $_FILES["userimage"]["size"];
-                      // $error = $_FILES["userimage"]["error"];
-                      // if($error == 0){
-                      //   if($imagesize > 125000){
-                      //   } else {
-                      //     $img_ex = pathinfo($filename, PATHINFO_EXTENSION);
-                      //     $img_ex_lc = pathinfo($img_ex);
-                      //     $allowed_exs = array("jpg","jpeg","png");
-                      //     if (in_array($img_ex_lc, $allowed_exs)){
-                      //       $new_file_name = uniqid("IMG-", true).'.'.$img_ex_lc;
-                      //       $img_upload_path='/img'.$new_file_name;
-                      //       move_uploaded_file($tempname,$img_upload_path);
-                      //     } else {
-                      //       $em = "You can't upload files of this type";
-                      //       echo $em;
-                      //     }
-                      //   }
-                      // }
                       $target_folder = "img/";
                     $userimage = $target_folder . basename($_FILES['userimage']['name']);
                    $sql = "UPDATE user set user_name = '$username ', user_email = '$useremail' ,  user_password = '$userpassword' , user_image = '$userimage' WHERE user_id = $userid" ;

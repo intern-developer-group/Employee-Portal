@@ -39,7 +39,7 @@ session_start();
               <h6 class="mb-0 text-center">Update user details</h6>
             </div>
             <div class="card-body pt-4 p-3">
-              <form role="form" method="POST" action="">
+              <form role="form" method="POST" action="" enctype="multipart/form-data">
                 <ul class="list-group">
                   <div class="form-group">
                     <label>Name</label>
@@ -54,6 +54,11 @@ session_start();
                     <label>Monthly Salary</label>
                     <input type="number" class="form-control" placeholder="monthly salary" min="1000"
                       aria-label="salary" aria-describedby="salary-addon" name="salary" required value=<?php echo $salary; ?>>
+                      <label  class="form-label">Photo</label></br>
+                  <div class="avatar avatar-xl position-relative">
+                    <img  alt="profile_image" src="assets/<?php echo $img;?>"  class="w-100 border-radius-lg shadow-sm" name="photo"   >
+                  </div>
+                  <input type="file" name="userimage" class="form-control"/>
                     <label>usertype</label>
                     <input type="text" class="form-control" placeholder="user type" aria-label="usertype"
                       aria-describedby="usertype-addon" name="usertype" required value=<?php echo $usertype; ?>>
