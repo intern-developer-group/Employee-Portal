@@ -39,6 +39,73 @@
 
 <body class="g-sidenav-show  bg-gray-100" style="overflow-y:hidden;">
   <!-- Navbar -->
+  <?php
+  if (isset($_POST['sign'])) {
+    $name1 = legal_input($_POST['username']);
+    $email1 = legal_input($_POST['email']);
+    $password1 = legal_input($_POST['pswd']);
+
+    if (isset($_FILES['userimage'])) {
+      $file_name = $_FILES['userimage']['name'];
+      $file_size = $_FILES['userimage']['size'];
+      $file_tmp = $_FILES['userimage']['tmp_name'];
+      $file_type = $_FILES['userimage']['type'];
+      move_uploaded_file($file_tmp, "assets/img/" . $file_name);
+      $img_ex = pathinfo($file_name, PATHINFO_EXTENSION);
+      $allowed_exs = array('JPG', 'JPEG', 'PNG', 'jpg', 'jpeg', 'png');
+      if (in_array($img_ex, $allowed_exs)) {
+      } else {
+        ?>
+        <script> alert('please upload image in selected format only');</script>
+        <?php
+      }
+    }
+    $target_folder = "img/";
+    $userimage = $target_folder . basename($_FILES['userimage']['name']);
+    $emailquery = "SELECT * from user WHERE user_email = '$email1'";
+    $query = mysqli_query($con, $emailquery);
+    $emailcount = mysqli_num_rows($query);
+    $usertype = '1';
+    if ($emailcount > 0) { ?>
+      <script> alert("email already exists");</script>
+      <?php
+    } else {
+      $query1 = "INSERT INTO user (user_name,user_email,user_password,user_type,user_image) VALUES(?,?,?,?,?)";
+      if ($stmt = mysqli_prepare($con, $query1)) {
+        mysqli_stmt_bind_param($stmt, 'sssis', $name1, $email1, $password1, $usertype, $userimage);
+        if (mysqli_stmt_execute($stmt)) {
+          $result2 = mysqli_query($con, "SELECT * from user where user_name='$name1'");
+          $row2 = mysqli_fetch_array($result2);
+          $userid2 = $row2['user_id'];
+          $leave = 1;
+          $query3 = "INSERT INTO leaves_count (user_id,medical_leave,paid_leave) VALUES(?,?,?)";
+          if ($stmt3 = mysqli_prepare($con, $query3)) {
+            mysqli_stmt_bind_param($stmt3, 'iii', $userid2, $leave, $leave);
+            if (mysqli_stmt_execute($stmt3)) {
+              $msg3 = "Data was created successfully";
+              return $msg3;
+            } else {
+              $msg3 = "Error:" . $query3 . "<br>" . mysqli_error($con);
+            }
+          }
+        }
+        $msg1 = "Data was created successfully";
+        return $msg1;
+      } else {
+        $msg1 = "Error:" . $query1 . "<br>" . mysqli_error($con);
+      }
+    }
+
+  }
+  // convert illegal input to legal input
+  function legal_input($value)
+  {
+    $value = trim($value);
+    $value = stripslashes($value);
+    $value = htmlspecialchars($value);
+    return $value;
+  }
+  ?>
   <nav
     class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3  navbar-transparent mt-4">
     <div class="container">
@@ -79,8 +146,8 @@
               <h5>Register with</h5>
             </div>
             <div class="card-body pt-0">
-              <form role="form text-left" action="" method="post"
-                onsubmit="if(document.getElementById('agree').checked) { return true; } else { alert('Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy'); return false; }">
+              <form role="form text-left" action="" method="POST"
+                onsubmit="if(document.getElementById('agree').checked) { return true; } else { alert('Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy'); return false; }" enctype="multipart/form-data">
                 <div class="mb-3">
                   <input type="text" class="form-control" placeholder="Name" aria-label="Name"
                     aria-describedby="email-addon" name="username" required>
@@ -95,7 +162,7 @@
                 </div>
                 <div class="mb-3 form-group w-95">
                   <label class="form-label">Photo</label></br>
-                  <input type="file" name="userimage" class="form-control" />
+                  <input type="file" name="userimage" class="form-control" required>
                 </div>
                 <div class="form-check form-check-info text-left">
                   <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
@@ -103,74 +170,7 @@
                     I agree the <a href="javascript:;" class="text-dark font-weight-bolder">Terms and Conditions</a>
                   </label>
                 </div>
-                <?php
-if (isset($_POST['sign'])) {
-  $name1 = legal_input($_POST['username']);
-  $email1 = legal_input($_POST['email']);
-  $password1 = legal_input($_POST['pswd']);
 
-  if (isset($_FILES['userimage'])) {
-    $file_name = $_FILES['userimage']['name'];
-    $file_size = $_FILES['userimage']['size'];
-    $file_tmp = $_FILES['userimage']['tmp_name'];
-    $file_type = $_FILES['userimage']['type'];
-    move_uploaded_file($file_tmp, "assets/img/" . $file_name);
-    $img_ex = pathinfo($file_name, PATHINFO_EXTENSION);
-    echo $img_ex;
-    $allowed_exs = array('JPG', 'JPEG', 'PNG', 'jpg', 'jpeg', 'png');
-    if (in_array($img_ex, $allowed_exs)) {
-    } else {
-      ?>
-      <script> alert('please upload image in selected format only');</script>
-      <?php
-    }
-  } 
-  $target_folder = "img/";
-  $userimage = $target_folder . basename($_FILES['userimage']['name']);
-  $emailquery = "SELECT * from user WHERE user_email = '$email1'";
-  $query = mysqli_query($con, $emailquery);
-  $emailcount = mysqli_num_rows($query);
-  if ($emailcount > 0) { ?>
-    <script> alert("email already exists");</script>
-    <?php
-  } else {
-    $query1 = "INSERT INTO user (user_name,user_email,user_password,user_type,user_image) VALUES(?,?,?,?,?)";
-    if ($stmt = mysqli_prepare($con, $query1)) {
-      mysqli_stmt_bind_param($stmt, 'sssis', $name1, $email1, $password1, $usertype, $userimage);
-      if (mysqli_stmt_execute($stmt)) {
-        $result2 = mysqli_query($con, "SELECT * from user where user_name='$name1'");
-        $row2 = mysqli_fetch_array($result2);
-        $userid2 = $row2['user_id'];
-        echo $userid2;
-        $leave = 1;
-        $query3 = "INSERT INTO leaves_count (user_id,medical_leave,paid_leave) VALUES(?,?,?)";
-        if ($stmt3 = mysqli_prepare($con, $query3)) {
-          mysqli_stmt_bind_param($stmt3, 'iii', $userid2, $leave, $leave);
-          if (mysqli_stmt_execute($stmt3)) {
-            $msg3 = "Data was created successfully";
-            return $msg3;
-          } else {
-            $msg3 = "Error:" . $query3 . "<br>" . mysqli_error($con);
-          }
-        }
-      }
-      $msg1 = "Data was created successfully";
-      return $msg1;
-    } else {
-      $msg1 = "Error:" . $query1 . "<br>" . mysqli_error($con);
-    }
-  }
-
-}
-// convert illegal input to legal input
-function legal_input($value)
-{
-  $value = trim($value);
-  $value = stripslashes($value);
-  $value = htmlspecialchars($value);
-  return $value;
-}
-?>
                 <div class="text-center">
                   <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2" name="sign">Sign up</button>
                 </div>
@@ -186,7 +186,7 @@ function legal_input($value)
 
   <!-- php -->
 
-  
+
 
 
 
